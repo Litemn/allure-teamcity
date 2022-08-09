@@ -12,7 +12,7 @@ buildscript {
 }
 
 ext {
-    teamcityVersion = '2017.1'
+    teamcityVersion = '2022.04'
     gradleScriptDir = "${rootProject.projectDir}/gradle"
     teamcityDir = "${rootProject.projectDir}/.teamcity"
     serverOpts = "-DTC.res.disableAll=true " +
@@ -34,7 +34,7 @@ configure(rootProject) {
 }
 
 tasks.withType(Wrapper.class) {
-    gradleVersion = '6.4'
+    gradleVersion = '7.5.2'
 }
 
 allprojects {
@@ -53,7 +53,7 @@ subprojects {
 
     compileJava {
         sourceCompatibility = 1.8
-        targetCompatibility = 1.8
+        targetCompatibility = 11
         options.encoding = 'UTF-8'
     }
 

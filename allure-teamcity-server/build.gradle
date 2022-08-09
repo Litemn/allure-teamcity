@@ -10,8 +10,8 @@ teamcity {
     }
 
     environments {
-        Teamcity2017 {
-            version = '2017.1.5'
+        Teamcity2022 {
+            version = '2022.04'
             homeDir = file("$teamcityDir/TeamCity-${version}")
             dataDir = file("$teamcityDir/data/${version}")
             serverOptions = serverOpts
@@ -28,15 +28,15 @@ serverPlugin {
 //configurations.archives.artifacts.removeAll { it.archiveTask.is jar }
 
 dependencies {
-    def teamcityFullDir = "$teamcityDir/TeamCity-2017.1.5"
+    def teamcityFullDir = "$teamcityDir/TeamCity-2022.04"
     agent project(path: ':allure-teamcity-agent', configuration: 'plugin')
 
     compile project(':allure-teamcity-common')
 
-    compile 'commons-io:commons-io:2.7'
-    compile 'org.apache.commons:commons-lang3:3.4'
+    compile 'commons-io:commons-io:2.11.0'
+    compile 'org.apache.commons:commons-lang3:3.12.0'
 
-    provided 'javax.servlet:jstl:1.1.2'
+    provided 'javax.servlet:jstl:1.2'
     provided "org.jetbrains.teamcity.internal:server:$teamcityVersion"
     provided files("${teamcityFullDir}/webapps/ROOT/WEB-INF/lib/server-tools.jar")
     provided files("${teamcityFullDir}/webapps/ROOT/WEB-INF/lib/common-tools.jar")
